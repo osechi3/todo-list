@@ -233,3 +233,65 @@ ul {
   visibility: hidden;
 }
 
+/* Edit box */
+#edit-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 800px;
+  height: 100px;
+  margin: -50px 0 0 -400px;
+
+  background-color: white;
+  border: 3px solid #ADD8FF;
+}
+#edit-line1 {
+  display: flex;
+}
+#edit-line2 {
+  display: flex;
+  justify-content: flex-end;
+}
+#edit-title {
+  height: 50px;
+  width: 80%;
+  padding-left: 30px;
+
+  font-size: 18px;
+  color: #446DF6;
+
+  border: none;
+}
+#edit-date {
+  height: 50px;
+  width: 125px;
+
+  text-align: center;
+  font-size: 15px;
+  color: #446DF6;
+
+  border: none;
+}
+.edit-options {
+  height: 35px;
+
+  font-size: 15px;
+  text-align: center;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #ADD8FF;
+}
+.edit-options:hover {
+  background-color: #ADD8FF;
+}
+#edit-priority {
+  margin: 0 20px 0 10px;
+}
