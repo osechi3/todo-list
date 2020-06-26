@@ -37,12 +37,32 @@
             </div>
 
             <button id="new-todo-button" type="button">+</button>
+
+            <div id="input-container" class="hide">
+              <div id="input-line1">
+                <label for="input-title"></label>
+                <input id="input-title" name="input-title" type="text" placeholder="What would you like to do?">
+                <label for="input-date"></label>
+                <input id="input-date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="When?">
+              </div>
+              <div id="input-line2">
+                <label for="input-project"></label>
+                <select id="input-project" class="input-options" name="input-project">
+                  <option value="">Project</option>
+                  <option value="project1">Project 1</option>
+                  <option value="project2">Project 2</option>
+                </select>
+                <label for="input-priority"></label>
+                <select id="input-priority" class="input-options" name="input-priority">
+                  <option value="">Priority</option>
+                  <option value="priority1">Priority 1</option>
+                  <option value="priority2">Priority 2</option>
+                  <option value="priority3">Priority 3</option>
+                  <option value="priority4">Priority 4</option>
+                </select>
+              </div>
+            </div>
           </div>
-<!--
-                
-
--->
-
         </div>
       </main>
       <script src="main.js"></script>

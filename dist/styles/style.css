@@ -164,3 +164,72 @@ ul {
 
   text-align: center;
 }
+
+/* Input box */
+#input-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 800px;
+  height: 100px;
+  margin: -50px 0 0 -400px;
+
+  background-color: white;
+  border: 3px solid #ADD8FF;
+}
+#input-line1 {
+  display: flex;
+}
+#input-line2 {
+  display: flex;
+  justify-content: flex-end;
+}
+#input-title {
+  height: 50px;
+  width: 80%;
+  padding-left: 30px;
+
+  font-size: 18px;
+  color: #446DF6;
+
+  border: none;
+}
+#input-date {
+  height: 50px;
+  width: 125px;
+
+  text-align: center;
+  font-size: 15px;
+  color: #446DF6;
+
+  border: none;
+}
+.input-options {
+  height: 35px;
+
+  font-size: 15px;
+  text-align: center;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #ADD8FF;
+}
+.input-options:hover {
+  background-color: #ADD8FF;
+}
+#input-priority {
+  margin: 0 20px 0 10px;
+}
+
+/* Visibility */
+.hide {
+  visibility: hidden;
+}
+
