@@ -1,0 +1,166 @@
+html, body, main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+
+  font-family: 'Pangolin', cursive;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+
+/* Main structure */
+#app-header {
+  display: flex;
+  height: 9%;
+  
+  background-color: #446DF6;
+}
+#app-title {
+  width: 300px;
+  padding-left: 7px;
+
+  font-size: 32px;
+  color: white;
+}
+#main-section {
+  height: 91%;
+
+  display: flex;
+  align-items: stretch;
+
+  outline: 1px solid red;
+}
+#todo-space {
+  flex-basis: 85%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  background-color: #CAE5FF;
+  outline: 1px solid;
+}
+
+.todo-elements {
+  width: 100%;
+  max-height: 70px;
+
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  outline: 1px solid;
+}
+
+/* a to-do element */
+#line1 {
+  display: flex;
+  flex-basis: 100%;
+}
+#complete-btn {
+  width: 3%;
+  height: 45px;
+
+  line-height: 55px;
+  text-align: center;
+
+  outline: 1px solid;
+}
+.todo-title {
+  width: 85%;
+  height: 45px;
+  padding-left: 25px;
+
+  font-size: 20px;
+  line-height: 45px;
+
+  outline: 1px solid;
+}
+#line2 {
+  display: flex;
+  font-size: 16px;
+}
+.due-time {
+  padding-left: 65px;
+
+  outline: 1px solid;
+}
+.todo-project-name {
+  padding-left: 20px;
+
+  outline: 1px solid;
+}
+
+/* Options of a to-do element */
+#todo-options {
+  width: 10%;
+  height: 45px;
+
+  display: flex;
+  justify-content: flex-end;
+
+  outline: 1px solid;
+}
+#edit-btn {
+  padding: 5px;
+
+  outline: 1px solid;
+}
+#del-btn {
+  padding: 5px 15px 5px 5px;
+
+  outline: 1px solid;
+}
+
+#new-todo-button {
+  width: 50px;
+  height: 50px;
+  margin: 7px;
+
+  line-height: 40px;
+  font-size: 36px;
+  text-align: center;
+  color: white;
+
+  background-color: #85C4FF;
+  border: 5px solid #70BAFF;
+  border-radius: 100%;
+}
+
+/* Projects tab */
+#projects-tab {
+  flex-basis: 15%;
+  margin-left: 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  font-size: 22px;
+
+  background-color: #ADD8FF;
+  outline: 1px solid;
+}
+#default-project {
+  margin-top: 35px;
+
+  text-align: center;
+  outline: 1px solid;
+}
+#projects-title {
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+
+  text-align: center;
+  text-decoration: underline;
+}
+#projects {
+  padding: 0;
+  margin: 0;
+
+  text-align: center;
+}
