@@ -97,13 +97,16 @@ ul {
 
 /* Options of a to-do element */
 #todo-options {
-  width: 10%;
+  width: 11%;
   height: 45px;
 
   display: flex;
   justify-content: flex-end;
 
   outline: 1px solid;
+}
+#undo-btn {
+  padding: 5px;
 }
 #edit-btn {
   padding: 5px;
