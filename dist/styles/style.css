@@ -97,6 +97,8 @@ ul {
 .due-time {
   padding-left: 65px;
 
+  font-size: 14px;
+
   outline: 1px solid;
 }
 .todo-project-name {
