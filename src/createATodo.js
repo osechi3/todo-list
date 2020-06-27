@@ -22,6 +22,7 @@ const appendATodo = (newTodo) => {
 
   const todoContainer = document.createElement('div');
   todoContainer.classList.add('todo-elements');
+  todoContainer.setAttribute('data', `order-${todos.indexOf(newTodo)}`);
   todoSpace.insertBefore(todoContainer, newTodoBtn);
 
   // first row in a to-do element
@@ -60,10 +61,19 @@ const appendATodo = (newTodo) => {
   editBtn.innerHTML = `<a href="#"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>`;
   todoOptions.appendChild(editBtn);
 
+  // Delete button
   const delBtn = document.createElement('div');
-  delBtn.setAttribute('id', 'del-btn');
+  delBtn.classList.add('del-btn');
   delBtn.innerHTML = `<a href="#"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a>`;
   todoOptions.appendChild(delBtn);
+
+  // Delete button functionality
+  delBtn.addEventListener('click', () => {
+    todoSpace.removeChild(todoContainer);
+    console.log(todos.indexOf(newTodo));
+    todos.splice(todos.indexOf(newTodo), 1);
+    console.log(todos);
+  });
 
   // second row in a to-do element
   const line2 = document.createElement('div');

@@ -30,7 +30,7 @@
                   <div id="undo-btn"><a href="#" ><i class="fa fa-undo fa-2x" aria-hidden="true"></i>
                   </a></div>
                   <div id="edit-btn"><a href="#"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a></div>
-                  <div id="del-btn"><a href="#"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></div>
+                  <div class="del-btn"><a href="#"><i class="fa fa-trash fa-2x" aria-hidden="true"></i></a></div>
                 </div>
               </div>
               <div id="line2">
@@ -40,58 +40,57 @@
             </div>
 
             <button id="new-todo-button" type="button">+</button>
-
-            <div id="input-container" class="hide">
-              <div id="input-line1">
-                <label for="input-title"></label>
-                <input id="input-title" class="input-elements" name="input-title" type="text" placeholder="What would you like to do?">
-                <label for="input-description"></label>
-                <input id="input-description" class="input-elements" name="input-description" type="test" placeholder="Description">
-                <label for="input-date"></label>
-                <input id="input-date" class="input-elements" name="input-date" type="date" placeholder="When?">
-              </div>
-              <div id="input-line2">
-                <button id="submit-btn" type="button">Create</button>
-                <label for="input-project"></label>
-                <select id="input-project" class="input-options input-elements" name="input-project">
-                  <option value="">Project</option>
-                  <option value="project1">Project 1</option>
-                  <option value="project2">Project 2</option>
-                </select>
-                <label for="input-priority"></label>
-                <select id="input-priority" class="input-options input-elements" name="input-priority">
-                  <option value="">Priority</option>
-                  <option value="priority1">Priority 1</option>
-                  <option value="priority2">Priority 2</option>
-                  <option value="priority3">Priority 3</option>
-                  <option value="priority4">Priority 4</option>
-                </select>
-              </div>
+          </div>
+          <div id="input-container" class="hide">
+            <div id="input-line1">
+              <label for="input-title"></label>
+              <input id="input-title" class="input-elements" name="input-title" type="text" placeholder="What would you like to do?">
+              <label for="input-description"></label>
+              <input id="input-description" class="input-elements" name="input-description" type="test" placeholder="Description">
+              <label for="input-date"></label>
+              <input id="input-date" class="input-elements" name="input-date" type="date" placeholder="When?">
             </div>
+            <div id="input-line2">
+              <button id="submit-btn" type="button">Create</button>
+              <label for="input-project"></label>
+              <select id="input-project" class="input-options input-elements" name="input-project">
+                <option value="">Project</option>
+                <option value="project1">Project 1</option>
+                <option value="project2">Project 2</option>
+              </select>
+              <label for="input-priority"></label>
+              <select id="input-priority" class="input-options input-elements" name="input-priority">
+                <option value="">Priority</option>
+                <option value="priority1">Priority 1</option>
+                <option value="priority2">Priority 2</option>
+                <option value="priority3">Priority 3</option>
+                <option value="priority4">Priority 4</option>
+              </select>
+            </div>
+          </div>
 
-            <div id="edit-container" class="hide">
-              <div id="edit-line1">
-                <label for="edit-title"></label>
-                <input id="edit-title" name="edit-title" type="text">
-                <label for="edit-date"></label>
-                <input id="edit-date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
-              </div>
-              <div id="edit-line2">
-                <label for="edit-project"></label>
-                <select id="edit-project" class="edit-options" name="edit-project">
-                  <option value="">Project</option>
-                  <option value="project1">Project 1</option>
-                  <option value="project2">Project 2</option>
-                </select>
-                <label for="edit-priority"></label>
-                <select id="edit-priority" class="edit-options" name="edit-priority">
-                  <option value="">Priority</option>
-                  <option value="priority1">Priority 1</option>
-                  <option value="priority2">Priority 2</option>
-                  <option value="priority3">Priority 3</option>
-                  <option value="priority4">Priority 4</option>
-                </select>
-              </div>
+          <div id="edit-container" class="hide">
+            <div id="edit-line1">
+              <label for="edit-title"></label>
+              <input id="edit-title" name="edit-title" type="text">
+              <label for="edit-date"></label>
+              <input id="edit-date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')">
+            </div>
+            <div id="edit-line2">
+              <label for="edit-project"></label>
+              <select id="edit-project" class="edit-options" name="edit-project">
+                <option value="">Project</option>
+                <option value="project1">Project 1</option>
+                <option value="project2">Project 2</option>
+              </select>
+              <label for="edit-priority"></label>
+              <select id="edit-priority" class="edit-options" name="edit-priority">
+                <option value="">Priority</option>
+                <option value="priority1">Priority 1</option>
+                <option value="priority2">Priority 2</option>
+                <option value="priority3">Priority 3</option>
+                <option value="priority4">Priority 4</option>
+              </select>
             </div>
           </div>
         </div>
