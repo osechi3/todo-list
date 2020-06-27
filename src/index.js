@@ -22,7 +22,7 @@ window.addEventListener('click', () => {
 });
 
 // Submit user's input
-// const inputElements = document.querySelectorAll('.input-elements');
+const inputElements = document.querySelectorAll('.input-elements');
 const submitBtn = document.querySelector('#submit-btn');
 
   submitBtn.addEventListener('click', () => {
@@ -32,7 +32,6 @@ const submitBtn = document.querySelector('#submit-btn');
     const inputProject = document.querySelector('#input-project').value;
     const inputPriority = document.querySelector('#input-priority').value;
 
-    console.log(inputTitle);
     createATodo(inputTitle, inputDescription, inputDate, inputProject, inputPriority);
     toHide();
     resetInput();
@@ -43,11 +42,10 @@ function toHide() {
   inputContainer.style.cssText = '';
 }
 
-
-// function resetInput() {
-//   inputElements.forEach((element) => {
-//     element.value = '';
-//   });
-// }
+function resetInput() {
+  inputElements.forEach((element) => {
+    element.value = '';
+  });
+}
 
 export {todos};
