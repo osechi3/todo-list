@@ -211,6 +211,19 @@ ul {
 
   border: none;
 }
+#input-description {
+  height: 45px;
+
+  padding-left: 7px;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+
+  color: #446DF6;
+  font-size: 16px;
+}
 #input-date {
   height: 50px;
   width: 125px;
