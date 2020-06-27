@@ -221,6 +221,22 @@ ul {
 
   border: none;
 }
+#submit-btn {
+  height: 35px;
+  width: 100px;
+
+  margin-top: 14px;
+  margin-right: 200px;
+
+  font-size: 16px;
+  text-align: center;
+
+  border: 2px solid #ADD8FF;
+  background-color: transparent;
+}
+#submit-btn:hover {
+  background-color: #ADD8FF;
+}
 .input-options {
   height: 35px;
 
