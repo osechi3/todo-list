@@ -33,17 +33,17 @@ const submitBtn = document.querySelector('#submit-btn');
     const inputPriority = document.querySelector('#input-priority').value;
 
     createATodo(inputTitle, inputDescription, inputDate, inputProject, inputPriority);
-    toHide();
-    resetInput();
+    toHide(inputContainer);
+    resetInput(inputElements);
   });
 
-function toHide() {
-  inputContainer.classList.add('hide');
-  inputContainer.style.cssText = '';
+function toHide(element) {
+  element.classList.add('hide');
+  element.style.cssText = '';
 }
 
-function resetInput() {
-  inputElements.forEach((element) => {
+function resetInput(elements) {
+  elements.forEach((element) => {
     element.value = '';
   });
 }
