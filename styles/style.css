@@ -101,6 +101,11 @@ ul {
 
   outline: 1px solid;
 }
+.todo-priority {
+  padding-left: 20px;
+
+  outline: 1px solid;
+}
 .todo-project-name {
   padding-left: 20px;
 
