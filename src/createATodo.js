@@ -39,34 +39,30 @@ const appendATodo = (newTodo) => {
 
   // Complete button functionality
   completeBtn.addEventListener('click', () => {
-    isClicked = true;
-    event.target.style.color = '#D00000';
-    todoContainer.style.backgroundColor = '#44AF69';
-    todoTitle.style.cssText = 'text-decoration: line-through;';
-    todoDescription.style.cssText = 'text-decoration: line-through;';
-    todoDueTime.style.cssText = 'text-decoration: line-through;';
-    todoPriority.style.cssText = 'text-decoration: line-through;';
-    todoProjectName.style.cssText = 'text-decoration: line-through;';
-
-    // Click twice to delete a to-do from the list
-    if (isClicked) {
-      completeBtn.addEventListener('click', () => {
-        todoSpace.removeChild(todoContainer);
-        console.log(todos.indexOf(newTodo));
-        todos.splice(todos.indexOf(newTodo), 1);
-        console.log(todos);
-        isClicked = false;
-      })
+    if (!isClicked) {
+      completeBtn.firstChild.style.color = '#D00000';
+      todoContainer.style.backgroundColor = '#44AF69';
+      const todoInputElements = document.querySelectorAll('.todo-input-elements');
+      todoInputElements.forEach((element) => element.style.cssText = 'text-decoration: line-through;');
+      isClicked = true;
+    } else {
+      todoSpace.removeChild(todoContainer);
+      console.log(todos.indexOf(newTodo));
+      todos.splice(todos.indexOf(newTodo), 1);
+      console.log(todos);
+      isClicked = false;
     }
+    // Showing undo button
+    undoBtn.classList.remove('hide');
   });
 
   const todoTitle = document.createElement('div');
-  todoTitle.classList.add('todo-title');
+  todoTitle.classList.add('todo-title', 'todo-input-elements');
   todoTitle.textContent = newTodo.title;
   line1.appendChild(todoTitle);
 
   const todoDescription = document.createElement('div');
-  todoDescription.classList.add('todo-description');
+  todoDescription.classList.add('todo-description', 'todo-input-elements');
   todoDescription.textContent = newTodo.description;
   line1.appendChild(todoDescription);
 
@@ -75,11 +71,22 @@ const appendATodo = (newTodo) => {
   line1.appendChild(todoOptions);
 
   // Undo, edit and delete buttons
+  // Undo button
   const undoBtn = document.createElement('div');
   undoBtn.setAttribute('id', 'undo-btn');
+  undoBtn.classList.add('hide');
   undoBtn.innerHTML = `<a href="#" ><i class="fa fa-undo fa-2x" aria-hidden="true"></i>
   </a>`;
   todoOptions.appendChild(undoBtn);
+
+  // Undo button functionality
+  undoBtn.addEventListener('click', () => {
+    isClicked = false;
+    completeBtn.firstChild.style.color = '';
+    todoContainer.style.backgroundColor = '';
+    const todoInputElements = document.querySelectorAll('.todo-input-elements');
+    todoInputElements.forEach((element) => element.style.cssText = '');
+  });
 
   const editBtn = document.createElement('div');
   editBtn.setAttribute('id', 'edit-btn');
@@ -106,17 +113,17 @@ const appendATodo = (newTodo) => {
   todoContainer.appendChild(line2);
 
   const todoDueTime = document.createElement('div');
-  todoDueTime.classList.add('due-time');
+  todoDueTime.classList.add('due-time', 'todo-input-elements');
   todoDueTime.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> ${newTodo.dueDate}`;
   line2.appendChild(todoDueTime);
 
   const todoPriority = document.createElement('div');
-  todoPriority.classList.add('todo-priority');
+  todoPriority.classList.add('todo-priority', 'todo-input-elements');
   todoPriority.textContent = newTodo.priority;
   line2.appendChild(todoPriority);
 
   const todoProjectName = document.createElement('div');
-  todoProjectName.classList.add('todo-project-name');
+  todoProjectName.classList.add('todo-project-name', 'todo-input-elements');
   todoProjectName.textContent = newTodo.project;
   line2.appendChild(todoProjectName);
 }
