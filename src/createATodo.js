@@ -30,10 +30,35 @@ const appendATodo = (newTodo) => {
   line1.setAttribute('id', 'line1');
   todoContainer.appendChild(line1);
 
+  // Complete button
   const completeBtn = document.createElement('div');
   completeBtn.setAttribute('id', 'complete-btn');
   completeBtn.innerHTML = `<a  href="#"><i class="fa fa-check-circle-o fa-2x" aria-hidden="true"></i></a>`
   line1.appendChild(completeBtn);
+  let isClicked = false;
+
+  // Complete button functionality
+  completeBtn.addEventListener('click', () => {
+    isClicked = true;
+    event.target.style.color = '#D00000';
+    todoContainer.style.backgroundColor = '#44AF69';
+    todoTitle.style.cssText = 'text-decoration: line-through;';
+    todoDescription.style.cssText = 'text-decoration: line-through;';
+    todoDueTime.style.cssText = 'text-decoration: line-through;';
+    todoPriority.style.cssText = 'text-decoration: line-through;';
+    todoProjectName.style.cssText = 'text-decoration: line-through;';
+
+    // Click twice to delete a to-do from the list
+    if (isClicked) {
+      completeBtn.addEventListener('click', () => {
+        todoSpace.removeChild(todoContainer);
+        console.log(todos.indexOf(newTodo));
+        todos.splice(todos.indexOf(newTodo), 1);
+        console.log(todos);
+        isClicked = false;
+      })
+    }
+  });
 
   const todoTitle = document.createElement('div');
   todoTitle.classList.add('todo-title');
@@ -84,6 +109,11 @@ const appendATodo = (newTodo) => {
   todoDueTime.classList.add('due-time');
   todoDueTime.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> ${newTodo.dueDate}`;
   line2.appendChild(todoDueTime);
+
+  const todoPriority = document.createElement('div');
+  todoPriority.classList.add('todo-priority');
+  todoPriority.textContent = newTodo.priority;
+  line2.appendChild(todoPriority);
 
   const todoProjectName = document.createElement('div');
   todoProjectName.classList.add('todo-project-name');

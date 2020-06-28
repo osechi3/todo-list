@@ -32,7 +32,7 @@ const submitBtn = document.querySelector('#submit-btn');
     const inputProject = document.querySelector('#input-project').value;
     const inputPriority = document.querySelector('#input-priority').value;
 
-    createATodo(inputTitle, inputDescription, inputDate, inputProject, inputPriority);
+    createATodo(inputTitle, inputDescription, inputDate, inputPriority, inputProject);
     toHide(inputContainer);
     resetInput(inputElements);
   });
