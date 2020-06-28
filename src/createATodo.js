@@ -46,6 +46,7 @@ const appendATodo = (newTodo) => {
       todoInputElements.forEach((element) => element.style.cssText = 'text-decoration: line-through;');
       isClicked = true;
     } else {
+      // If clicked second time - delete the to-do element
       todoSpace.removeChild(todoContainer);
       console.log(todos.indexOf(newTodo));
       todos.splice(todos.indexOf(newTodo), 1);
