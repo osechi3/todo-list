@@ -1,8 +1,9 @@
 import {deleteATodo, completeATodo} from './todoInteractions';
-import {todos} from './index';
+import {todos, helperFunctions} from './index';
 
 const todoSpace = document.querySelector('#todo-space');
 const newTodoBtn = document.querySelector('#new-todo-button');
+// const mainSection = document.querySelector('#main-section');
 
 // Put a new to-do onto the page
 const appendATodo = (newTodo) => {
@@ -38,8 +39,7 @@ const appendATodo = (newTodo) => {
       completeATodo(newTodo);
       isClicked = false;
     }
-    // Showing undo button
-    undoBtn.classList.remove('hide');
+    helperFunctions().toShow(undoBtn);
   });
 
   const todoTitle = document.createElement('div');
@@ -57,10 +57,11 @@ const appendATodo = (newTodo) => {
   line1.appendChild(todoOptions);
 
   // Undo, edit and delete buttons
+
   // Undo button
   const undoBtn = document.createElement('div');
   undoBtn.setAttribute('id', 'undo-btn');
-  undoBtn.classList.add('hide');
+  helperFunctions().toHide(undoBtn); // We need it only when the complete button has been clicked
   undoBtn.innerHTML = `<a href="#" ><i class="fa fa-undo fa-2x" aria-hidden="true"></i>
   </a>`;
   todoOptions.appendChild(undoBtn);
@@ -78,6 +79,54 @@ const appendATodo = (newTodo) => {
   editBtn.setAttribute('id', 'edit-btn');
   editBtn.innerHTML = `<a href="#"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>`;
   todoOptions.appendChild(editBtn);
+
+  // Edit button functionality
+  editBtn.addEventListener('click', () => {
+
+    const editContainer = document.querySelector('#edit-container');
+    // editContainer
+
+  //   console.log('works');
+
+  //   const editContainer = document.createElement('div');
+  //   editContainer.setAttribute('id', 'input-container');
+  //   mainSection.appendChild(editContainer);
+    
+  //   // First row of elements in the edit container
+  //   const inputLine1 = document.createElement('div');
+  //   inputLine1.setAttribute('id', 'input-line1');
+  //   editContainer.appendChild(inputLine1);
+
+  //   // Title
+  //   const editTitleLabel = document.createElement('label');
+  //   editTitleLabel.setAttribute('for', 'input-title');
+  //   inputLine1.appendChild(editTitleLabel);
+
+  //   const editTitle = document.createElement('input');
+  //   editTitle.setAttribute('id', 'input-title');
+  //   editTitle.setAttribute('name', 'input-title');
+  //   editTitle.setAttribute('type', 'text');
+  //   editTitle.value = newTodo.title;
+  //   inputLine1.appendChild(editTitle);
+
+
+  //   // Second row of elements in the edit container
+  //   const inputLine2 = document.createElement('div');
+  //   inputLine2.setAttribute('id', 'input-line2');
+  //   editContainer.appendChild(inputLine2);
+
+  //   const submitBtn = document.createElement('button');
+  //   submitBtn.setAttribute('type', 'button');
+  //   inputLine2.appendChild(submitBtn);
+
+  //   submitBtn.addEventListener('click', () => {
+  //     console.log(newTodo);
+  //     newTodo.title = editTitle.value;
+  //     todoTitle.textContent = editTitle.value;
+  //     console.log(newTodo);
+  //   });
+
+  });
 
   // Delete button
   const delBtn = document.createElement('div');

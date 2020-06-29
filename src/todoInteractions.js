@@ -13,4 +13,5 @@ const deleteATodo = (newTodo) => {
   console.log(todos);
 }
 
+
 export {deleteATodo, completeATodo};
