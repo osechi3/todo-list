@@ -1,6 +1,8 @@
-import {createATodo} from './createATodo';
+import {createATodo} from './todoCreation';
 
+// Storage for to-dos
 let todos = [];
+let completedTodos = [];
 
 const newTodoBtn = document.querySelector('#new-todo-button');
 const inputContainer = document.querySelector('#input-container');
@@ -48,4 +50,4 @@ function resetInput(elements) {
   });
 }
 
-export {todos};
+export {todos, completedTodos};

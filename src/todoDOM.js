@@ -1,18 +1,5 @@
-import {todos} from './index'
-
-const todoItem = (title, description, dueDate, priority, project, isComplete) => {
-  isComplete = false;
-  return {title, description, dueDate, priority, project, isComplete}
-}
-
-let test = todoItem('Do the dishes', 'Mom asked me to do the dishes', 'Monday 05/12/2020', 'Priority 1', 'Default');
-
-const createATodo = (title, description, dueDate, priority, project) => {
-  let newTodo = todoItem(title, description, dueDate, priority, project);
-  todos.push(newTodo);
-  console.log(todos);
-  appendATodo(newTodo);
-}
+import {deleteATodo, completeATodo} from './todoInteractions';
+import {todos} from './index';
 
 const todoSpace = document.querySelector('#todo-space');
 const newTodoBtn = document.querySelector('#new-todo-button');
@@ -40,17 +27,15 @@ const appendATodo = (newTodo) => {
   // Complete button functionality
   completeBtn.addEventListener('click', () => {
     if (!isClicked) {
+      const todoInputElements = document.querySelectorAll('.todo-input-elements');
       completeBtn.firstChild.style.color = '#D00000';
       todoContainer.style.backgroundColor = '#44AF69';
-      const todoInputElements = document.querySelectorAll('.todo-input-elements');
       todoInputElements.forEach((element) => element.style.cssText = 'text-decoration: line-through;');
       isClicked = true;
     } else {
       // If clicked second time - delete the to-do element
       todoSpace.removeChild(todoContainer);
-      console.log(todos.indexOf(newTodo));
-      todos.splice(todos.indexOf(newTodo), 1);
-      console.log(todos);
+      completeATodo(newTodo);
       isClicked = false;
     }
     // Showing undo button
@@ -103,9 +88,7 @@ const appendATodo = (newTodo) => {
   // Delete button functionality
   delBtn.addEventListener('click', () => {
     todoSpace.removeChild(todoContainer);
-    console.log(todos.indexOf(newTodo));
-    todos.splice(todos.indexOf(newTodo), 1);
-    console.log(todos);
+    deleteATodo(newTodo);
   });
 
   // second row in a to-do element
@@ -129,4 +112,4 @@ const appendATodo = (newTodo) => {
   line2.appendChild(todoProjectName);
 }
 
-export {createATodo};
+export {appendATodo};
