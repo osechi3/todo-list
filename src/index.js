@@ -18,7 +18,7 @@ newTodoBtn.addEventListener('click', () => {
 window.addEventListener('click', () => {
   if (!inputContainer.classList.contains('hide')) {
     if (!inputContainer.contains(event.target) && event.target !== newTodoBtn) {
-      toHide();
+      toHide(inputContainer);
     }
   }
 });
