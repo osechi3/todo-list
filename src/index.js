@@ -1,4 +1,5 @@
 import {createATodo} from './todoCreation';
+import { createAProject } from './projectCreation';
 
 // Storage for to-dos
 let todos = [];

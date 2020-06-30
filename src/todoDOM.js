@@ -76,6 +76,7 @@ const appendATodo = (newTodo) => {
     helperFunctions().toHide(undoBtn);
   });
 
+  // Edit button
   const editBtn = document.createElement('div');
   editBtn.setAttribute('id', 'edit-btn');
   editBtn.innerHTML = `<a href="#"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>`;
