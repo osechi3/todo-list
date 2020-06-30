@@ -100,6 +100,7 @@ const appendATodo = (newTodo) => {
 
     helperFunctions().toShow(editContainer);
 
+    // Changing the values in the to-do according to the changes in the edit box
     editSubmitBtn.addEventListener('click', () => {
 
       newTodo.title = editTitle.value;
