@@ -38,11 +38,10 @@ submitBtn.addEventListener('click', () => {
 
 const helperFunctions = () => {
     
-  function toHide(element) {
-    element.classList.add('hide');
-  }
+  const toHide = (element) => { element.classList.add('hide');}
+  
   // Hide the box if clicked outside
-  function hideBox(box, eventHandler) {
+  const hideBox = (box, eventHandler) => {
     if (!box.classList.contains('hide')) {
       console.log(event.target);
       if (!box.contains(event.target) && !eventHandler.contains(event.target)) {
@@ -50,14 +49,12 @@ const helperFunctions = () => {
       }
     }
   }
-  function toShow(element) {
-    element.classList.remove('hide');
-  }
-  function resetInput(elements) {
-    elements.forEach((element) => {
-      element.value = '';
-    });
-  }
+  const toShow = (element) => {element.classList.remove('hide');}
+
+  const resetInput = (elements) => { 
+    elements.forEach((element) => element.value = '')
+  };
+  
   return {toHide, hideBox, toShow, resetInput}
 }
 
