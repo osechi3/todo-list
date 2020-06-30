@@ -241,7 +241,7 @@ ul {
 
   border: none;
 }
-#submit-btn {
+.submit-btn {
   height: 35px;
   width: 100px;
 
@@ -254,7 +254,7 @@ ul {
   border: 2px solid #ADD8FF;
   background-color: transparent;
 }
-#submit-btn:hover {
+.submit-btn:hover {
   background-color: #ADD8FF;
 }
 .input-options {
@@ -315,9 +315,22 @@ ul {
 
   border: none;
 }
+#edit-description {
+  height: 45px;
+
+  padding-left: 7px;
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+
+  color: #446DF6;
+  font-size: 16px;
+}
 #edit-date {
   height: 50px;
-  width: 125px;
+  width: 200px;
 
   text-align: center;
   font-size: 15px;
