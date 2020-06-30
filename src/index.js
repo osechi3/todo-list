@@ -4,7 +4,7 @@ import {createATodo} from './todoCreation';
 let todos = [];
 let completedTodos = [];
 
-const newTodoBtn = document.querySelector('#new-todo-button');
+const newTodoBtn = document.querySelector('#new-todo-btn');
 const inputContainer = document.querySelector('#input-container');
 
 // Show the input box
@@ -39,7 +39,7 @@ submitBtn.addEventListener('click', () => {
 const helperFunctions = () => {
     
   const toHide = (element) => { element.classList.add('hide');}
-  
+
   // Hide the box if clicked outside
   const hideBox = (box, eventHandler) => {
     if (!box.classList.contains('hide')) {

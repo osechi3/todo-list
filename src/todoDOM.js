@@ -2,7 +2,7 @@ import {deleteATodo, completeATodo} from './todoInteractions';
 import {todos, helperFunctions} from './index';
 
 const todoSpace = document.querySelector('#todo-space');
-const newTodoBtn = document.querySelector('#new-todo-button');
+const newTodoBtn = document.querySelector('#new-todo-btn');
 // const mainSection = document.querySelector('#main-section');
 
 // Put a new to-do onto the page
