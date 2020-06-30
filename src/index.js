@@ -10,22 +10,19 @@ const inputContainer = document.querySelector('#input-container');
 // Show the input box
 newTodoBtn.addEventListener('click', () => {
   helperFunctions().toShow(inputContainer);
+  
   // darken the background
   inputContainer.style.cssText = '-webkit-box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3); -moz-box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3); box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3);';
-});
 
-// Hide the input box if clicked outside
-window.addEventListener('click', () => {
-  if (!inputContainer.classList.contains('hide')) {
-    if (!inputContainer.contains(event.target) && event.target !== newTodoBtn) {
-      helperFunctions().toHide(inputContainer);
-    }
-  }
+  // Hide the input box if clicked outside
+  window.addEventListener('click', () => {
+    helperFunctions().hideBox(inputContainer, newTodoBtn);
+  });
 });
 
 // Submit user's input
 const inputElements = document.querySelectorAll('.input-elements');
-const submitBtn = document.querySelector('#submit-btn');
+const submitBtn = document.querySelector('#input-submit-btn');
 
 submitBtn.addEventListener('click', () => {
   const inputTitle = document.querySelector('#input-title').value;
@@ -44,6 +41,15 @@ const helperFunctions = () => {
   function toHide(element) {
     element.classList.add('hide');
   }
+  // Hide the box if clicked outside
+  function hideBox(box, eventHandler) {
+    if (!box.classList.contains('hide')) {
+      console.log(event.target);
+      if (!box.contains(event.target) && !eventHandler.contains(event.target)) {
+        helperFunctions().toHide(box);
+      }
+    }
+  }
   function toShow(element) {
     element.classList.remove('hide');
   }
@@ -52,7 +58,7 @@ const helperFunctions = () => {
       element.value = '';
     });
   }
-  return {toHide, toShow, resetInput}
+  return {toHide, hideBox, toShow, resetInput}
 }
 
 export {todos, completedTodos, helperFunctions};

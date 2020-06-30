@@ -42,12 +42,12 @@ const appendATodo = (newTodo) => {
     helperFunctions().toShow(undoBtn);
   });
 
-  const todoTitle = document.createElement('div');
+  let todoTitle = document.createElement('div');
   todoTitle.classList.add('todo-title', 'todo-input-elements');
   todoTitle.textContent = newTodo.title;
   line1.appendChild(todoTitle);
 
-  const todoDescription = document.createElement('div');
+  let todoDescription = document.createElement('div');
   todoDescription.classList.add('todo-description', 'todo-input-elements');
   todoDescription.textContent = newTodo.description;
   line1.appendChild(todoDescription);
@@ -84,47 +84,47 @@ const appendATodo = (newTodo) => {
   editBtn.addEventListener('click', () => {
 
     const editContainer = document.querySelector('#edit-container');
-    // editContainer
+    const editSubmitBtn = document.querySelector('#edit-submit-btn');
 
-  //   console.log('works');
-
-  //   const editContainer = document.createElement('div');
-  //   editContainer.setAttribute('id', 'input-container');
-  //   mainSection.appendChild(editContainer);
+    let editTitle = document.querySelector('#edit-title');
+    let editDescription = document.querySelector('#edit-description');
+    let editDate = document.querySelector('#edit-date');
+    let editProjectName = document.querySelector('#edit-project');
+    let editPriority = document.querySelector('#edit-priority');
     
-  //   // First row of elements in the edit container
-  //   const inputLine1 = document.createElement('div');
-  //   inputLine1.setAttribute('id', 'input-line1');
-  //   editContainer.appendChild(inputLine1);
+    editTitle.value = newTodo.title;
+    editDescription.value = newTodo.description;
+    editDate.value = newTodo.dueDate;
+    editProjectName.value = newTodo.project;
+    editPriority.value = newTodo.priority;
 
-  //   // Title
-  //   const editTitleLabel = document.createElement('label');
-  //   editTitleLabel.setAttribute('for', 'input-title');
-  //   inputLine1.appendChild(editTitleLabel);
+    helperFunctions().toShow(editContainer);
 
-  //   const editTitle = document.createElement('input');
-  //   editTitle.setAttribute('id', 'input-title');
-  //   editTitle.setAttribute('name', 'input-title');
-  //   editTitle.setAttribute('type', 'text');
-  //   editTitle.value = newTodo.title;
-  //   inputLine1.appendChild(editTitle);
+    editSubmitBtn.addEventListener('click', () => {
 
+      newTodo.title = editTitle.value;
+      todoTitle.textContent = newTodo.title;
 
-  //   // Second row of elements in the edit container
-  //   const inputLine2 = document.createElement('div');
-  //   inputLine2.setAttribute('id', 'input-line2');
-  //   editContainer.appendChild(inputLine2);
+      newTodo.description = editDescription.value;
+      todoDescription.textContent = newTodo.description;
 
-  //   const submitBtn = document.createElement('button');
-  //   submitBtn.setAttribute('type', 'button');
-  //   inputLine2.appendChild(submitBtn);
+      newTodo.dueDate = editDate.value;
+      todoDueTime.textContent = newTodo.dueDate;
 
-  //   submitBtn.addEventListener('click', () => {
-  //     console.log(newTodo);
-  //     newTodo.title = editTitle.value;
-  //     todoTitle.textContent = editTitle.value;
-  //     console.log(newTodo);
-  //   });
+      newTodo.priority = editPriority.value;
+      todoPriority.textContent = newTodo.priority;
+
+      newTodo.project = editProjectName.value;
+      todoProjectName = newTodo.project;
+
+      console.log(newTodo);
+      helperFunctions().toHide(editContainer);
+    });
+
+    // Hide the container when clicked outside of it
+    window.addEventListener('click', () => {
+      helperFunctions().hideBox(editContainer, editBtn);
+    });
 
   });
 
@@ -145,17 +145,17 @@ const appendATodo = (newTodo) => {
   line2.setAttribute('id', 'line2');
   todoContainer.appendChild(line2);
 
-  const todoDueTime = document.createElement('div');
+  let todoDueTime = document.createElement('div');
   todoDueTime.classList.add('due-time', 'todo-input-elements');
   todoDueTime.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> ${newTodo.dueDate}`;
   line2.appendChild(todoDueTime);
 
-  const todoPriority = document.createElement('div');
+  let todoPriority = document.createElement('div');
   todoPriority.classList.add('todo-priority', 'todo-input-elements');
   todoPriority.textContent = newTodo.priority;
   line2.appendChild(todoPriority);
 
-  const todoProjectName = document.createElement('div');
+  let todoProjectName = document.createElement('div');
   todoProjectName.classList.add('todo-project-name', 'todo-input-elements');
   todoProjectName.textContent = newTodo.project;
   line2.appendChild(todoProjectName);
