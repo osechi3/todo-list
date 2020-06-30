@@ -73,6 +73,7 @@ const appendATodo = (newTodo) => {
     todoContainer.style.backgroundColor = '';
     const todoInputElements = document.querySelectorAll('.todo-input-elements');
     todoInputElements.forEach((element) => element.style.cssText = '');
+    helperFunctions().toHide(undoBtn);
   });
 
   const editBtn = document.createElement('div');
