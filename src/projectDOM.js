@@ -33,9 +33,21 @@ const createAProjectDOM = () => {
 }
 
 const appendProject = (newProject) => {
+
+  // Adding to the project section
+
   const newProjectItem = document.createElement('li');
   newProjectItem.textContent = newProject.name;
   projectList.insertBefore(newProjectItem, projectCreationBtn);
+
+  // Adding to the input container where a user can choose a project to put a new to-do into
+
+  const inputProjectSelector = document.querySelector('#input-project');
+  const newProjectOption = document.createElement('option');
+  newProjectOption.setAttribute('value', `${newProject.name}`);
+  newProjectOption.textContent = newProject.name;
+  inputProjectSelector.appendChild(newProjectOption);
+
 }
 
 export {appendProject, createAProjectDOM};
