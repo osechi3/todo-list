@@ -14,5 +14,16 @@ const createAProject = (name, todos) => {
   appendProject(newProject);
 }
 
+const appendToProject = (newTodo) => {
+  const inputProject = document.querySelector('#input-project').value;
+  console.log(inputProject)
+  projects.map((project) => {
+    if (project.name == inputProject) {
+      project.todos.push(newTodo);
+      console.log(projects);
+    }
+  });
+}
 
-export {createAProject};
+
+export {createAProject, projects, appendToProject};
