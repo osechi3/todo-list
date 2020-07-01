@@ -62,7 +62,24 @@ const appendProject = (newProject) => {
       }
     });
   });
+
+  // Home button functionality
+
+  // Show all todos regardless of a project
+  const homeBtn = document.querySelector('#default-project');
+  homeBtn.addEventListener('click', () => {
+    const todoProjectNames = document.querySelectorAll('.todo-project-name');
+    todoProjectNames.forEach((name) => {
+
+      // Removing hide class from all to-dos
+      helperFunctions().toShow(name.parentElement.parentElement);
+
+      // Removing absolute positioning from the hidden to-dos
+      name.parentElement.parentElement.style.cssText = '';
+    });
+  });
   
+
   // Adding a new project to the input container where a user can choose a project to put a new to-do into
 
   const inputProjectSelector = document.querySelector('#input-project');
