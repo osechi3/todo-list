@@ -1,5 +1,5 @@
 import {createATodo} from './todoCreation';
-import { createAProject } from './projectCreation';
+import {createAProjectDOM} from './projectDOM';
 
 // Storage for to-dos
 let todos = [];
@@ -34,7 +34,7 @@ submitBtn.addEventListener('click', () => {
 
   createATodo(inputTitle, inputDescription, inputDate, inputPriority, inputProject);
   helperFunctions().toHide(inputContainer);
-  helperFunctions().resetInput(inputElements); // clear input boxes when you get user's input
+  helperFunctions().resetInputAll(inputElements); // clear input boxes when you get user's input
 });
 
 const helperFunctions = () => {
@@ -52,11 +52,16 @@ const helperFunctions = () => {
   }
   const toShow = (element) => {element.classList.remove('hide');}
 
-  const resetInput = (elements) => { 
+  const resetInput = (element) => {
+    element.value = '';
+  }
+
+  const resetInputAll = (elements) => { 
     elements.forEach((element) => element.value = '')
   };
-  
-  return {toHide, hideBox, toShow, resetInput}
+
+  return {toHide, hideBox, toShow, resetInput, resetInputAll}
 }
+createAProjectDOM();
 
 export {todos, completedTodos, helperFunctions};

@@ -1,6 +1,6 @@
+import {appendProject} from './projectDOM';
 
-
-let projects = [];
+let projects = [{name: 'Default', todos: []}];
 
 const todoProject = (name, todos) => {
   todos = [];
@@ -11,8 +11,8 @@ const createAProject = (name, todos) => {
   let newProject = todoProject(name, todos);
   projects.push(newProject);
   console.log(projects);
+  appendProject(newProject);
 }
 
-createAProject('Default');
 
 export {createAProject};
