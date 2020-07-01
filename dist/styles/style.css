@@ -357,3 +357,8 @@ ul {
 #edit-priority {
   margin: 0 20px 0 10px;
 }
+
+/* Project creation box */
+#project-creation-container {
+  outline: 1px solid;
+}
