@@ -1,6 +1,5 @@
 import {appendProject} from './projectDOM';
-
-let projects = [{name: 'Default', todos: []}];
+import {projects} from './index';
 
 const todoProject = (name, todos) => {
   todos = [];
@@ -26,4 +25,4 @@ const appendToProject = (newTodo) => {
 }
 
 
-export {createAProject, projects, appendToProject};
+export {createAProject, appendToProject};

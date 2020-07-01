@@ -1,9 +1,10 @@
 import {createATodo} from './todoCreation';
 import {createAProjectDOM} from './projectDOM';
 
-// Storage for to-dos
+// Storage for to-dos and projects
 let todos = [];
 let completedTodos = [];
+let projects = [{name: 'Default', todos: []}];
 
 const newTodoBtn = document.querySelector('#new-todo-btn');
 const inputContainer = document.querySelector('#input-container');
@@ -64,4 +65,4 @@ const helperFunctions = () => {
 }
 createAProjectDOM();
 
-export {todos, completedTodos, helperFunctions};
+export {todos, completedTodos, projects, helperFunctions};
