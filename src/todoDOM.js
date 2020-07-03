@@ -1,5 +1,6 @@
 import {deleteATodo, completeATodo} from './todoInteractions';
 import {todos, helperFunctions} from './index';
+import {addPriorityColor} from './priorityInteractions';
 
 const todoSpace = document.querySelector('#todo-space');
 const newTodoBtn = document.querySelector('#new-todo-btn');
@@ -108,7 +109,8 @@ const appendATodo = (newTodo) => {
 
   let todoPriority = document.createElement('div');
   todoPriority.classList.add('todo-priority', 'todo-input-elements');
-  todoPriority.textContent = newTodo.priority;
+  todoPriority.innerHTML = `<i class="fa fa-circle" aria-hidden="true"></i> ${newTodo.priority}`;
+  todoPriority.style.color = addPriorityColor(newTodo);
   line2.appendChild(todoPriority);
 
   let todoProjectName = document.createElement('div');
@@ -116,7 +118,7 @@ const appendATodo = (newTodo) => {
   todoProjectName.textContent = newTodo.project;
   line2.appendChild(todoProjectName);
 
-  
+
   // Edit button functionality
   editBtn.addEventListener('click', () => {
 
@@ -209,24 +211,19 @@ const appendATodo = (newTodo) => {
     editPriority.appendChild(defaultPriority);
 
     const Priority1 = document.createElement('option');
-    Priority1.setAttribute('value', 'priority1');
-    Priority1.textContent = 'Priority 1';
+    Priority1.setAttribute('value', 'Low');
+    Priority1.textContent = 'Low';
     editPriority.appendChild(Priority1);
 
     const Priority2 = document.createElement('option');
-    Priority2.setAttribute('value', 'priority2');
-    Priority2.textContent = 'Priority 2';
+    Priority2.setAttribute('value', 'Medium');
+    Priority2.textContent = 'Medium';
     editPriority.appendChild(Priority2);
 
     const Priority3 = document.createElement('option');
-    Priority3.setAttribute('value', 'priority3');
-    Priority3.textContent = 'Priority 3';
+    Priority3.setAttribute('value', 'High');
+    Priority3.textContent = 'High';
     editPriority.appendChild(Priority3);
-
-    const Priority4 = document.createElement('option');
-    Priority4.setAttribute('value', 'priority4');
-    Priority4.textContent = 'Priority 4';
-    editPriority.appendChild(Priority4);
 
 
     // Showing values of a to-do in the object in the edit box
@@ -241,6 +238,8 @@ const appendATodo = (newTodo) => {
 
     editSubmitBtn.addEventListener('click', () => {
 
+      console.log(newTodo);
+      helperFunctions().toHide(editContainer)
       todoTitle.textContent = editTitle.value;
       newTodo.title = editTitle.value;
 
@@ -250,10 +249,12 @@ const appendATodo = (newTodo) => {
       todoDueTime.textContent = editDate.value;
       newTodo.dueDate = editDate.value;
 
-      todoPriority.textContent = editPriority.value;
+      todoPriority.innerHTML = `<i class="fa fa-circle" aria-hidden="true"></i> ${editPriority.value}`;
       newTodo.priority = editPriority.value;
+      todoPriority.style.color = addPriorityColor(newTodo);
+      console.log(newTodo);
 
-      helperFunctions().toHide(editContainer)
+
     });
 
   });
