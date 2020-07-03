@@ -16,10 +16,6 @@ newTodoBtn.addEventListener('click', () => {
   // darken the background
   inputContainer.style.cssText = '-webkit-box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3); -moz-box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3); box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3);';
 
-  // Hide the input box if clicked outside
-  window.addEventListener('click', () => {
-    helperFunctions().hideBox(inputContainer, newTodoBtn);
-  });
 });
 
 // Submit user's input
@@ -38,19 +34,16 @@ submitBtn.addEventListener('click', () => {
   helperFunctions().resetInputAll(inputElements); // clear input boxes when you get user's input
 });
 
+// Hide the container
+const closeInputBtn = document.querySelector('#close-input-btn');
+closeInputBtn.addEventListener('click', () => {
+  helperFunctions().toHide(inputContainer);
+});
+
 const helperFunctions = () => {
     
   const toHide = (element) => { element.classList.add('hide');}
 
-  // Hide the box if clicked outside
-  const hideBox = (box, eventHandler) => {
-    if (!box.classList.contains('hide')) {
-      console.log(event.target);
-      if (!box.contains(event.target) && !eventHandler.contains(event.target)) {
-        helperFunctions().toHide(box);
-      }
-    }
-  }
   const toShow = (element) => {element.classList.remove('hide');}
 
   const resetInput = (element) => {
@@ -61,7 +54,7 @@ const helperFunctions = () => {
     elements.forEach((element) => element.value = '')
   };
 
-  return {toHide, hideBox, toShow, resetInput, resetInputAll}
+  return {toHide, toShow, resetInput, resetInputAll}
 }
 createAProjectDOM();
 
