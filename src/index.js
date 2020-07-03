@@ -51,7 +51,15 @@ const helperFunctions = () => {
   }
 
   const resetInputAll = (elements) => { 
-    elements.forEach((element) => element.value = '')
+    elements.forEach((element) =>  {
+
+      // Making the default project the default option
+      if (element.getAttribute('id') == 'input-project') {
+        element.value = 'Default';
+      } else {
+        element.value = ''
+      }
+    });
   };
 
   return {toHide, toShow, resetInput, resetInputAll}
