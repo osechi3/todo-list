@@ -13,7 +13,7 @@ const createAProject = (name, todos) => {
   appendProject(newProject);
 }
 
-const appendToProject = (newTodo) => {
+const addToProject = (newTodo) => {
   const inputProject = document.querySelector('#input-project').value;
   console.log(inputProject)
   projects.map((project) => {
@@ -25,4 +25,4 @@ const appendToProject = (newTodo) => {
 }
 
 
-export {createAProject, appendToProject};
+export {createAProject, addToProject};
