@@ -80,13 +80,21 @@ const appendProject = (newProject) => {
   });
   
 
-  // Adding a new project to the input container where a user can choose a project to put a new to-do into
+  // Adding a new project to the input container and to the edit container 
+  // where a user can choose a project to put a new to-do into
 
   const inputProjectSelector = document.querySelector('#input-project');
-  const newProjectOption = document.createElement('option');
-  newProjectOption.setAttribute('value', `${newProject.name}`);
-  newProjectOption.textContent = newProject.name;
-  inputProjectSelector.appendChild(newProjectOption);
+  const newProjectInputOption = document.createElement('option');
+  newProjectInputOption.setAttribute('value', `${newProject.name}`);
+  newProjectInputOption.textContent = newProject.name;
+  inputProjectSelector.appendChild(newProjectInputOption);
+
+  
+  const editProjectSelector = document.querySelector('#edit-project');
+  const newProjectEditOption = document.createElement('option');
+  newProjectEditOption.setAttribute('value', `${newProject.name}`);
+  newProjectEditOption.textContent = newProject.name;
+  editProjectSelector.appendChild(newProjectEditOption);
 
 }
 
