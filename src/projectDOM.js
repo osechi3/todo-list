@@ -51,14 +51,21 @@ const appendProject = (newProject) => {
   newProjectItemBtn.addEventListener('click', () => {
     const todoProjectNames = document.querySelectorAll('.todo-project-name');
     todoProjectNames.forEach((name) => {
-      console.log(name.dataset.order);
+
       if (name.textContent !== newProjectItemBtn.textContent) {
         
-        // Hiding the to-do containers that aren't in the project
+        // Hiding the to-dos that aren't in the project
         helperFunctions().toHide(name.parentElement.parentElement);
-        
+
         // Removing them from the flow of the page
         name.parentElement.parentElement.style.cssText = 'position: absolute';
+      } else {
+
+        // Showing the to-dos that are in the project
+        helperFunctions().toShow(name.parentElement.parentElement);
+
+        // Returning the to the flow of the page
+        name.parentElement.parentElement.style.cssText = '';
       }
     });
   });
@@ -89,7 +96,7 @@ const appendProject = (newProject) => {
   newProjectInputOption.textContent = newProject.name;
   inputProjectSelector.appendChild(newProjectInputOption);
 
-  
+
   const editProjectSelector = document.querySelector('#edit-project');
   const newProjectEditOption = document.createElement('option');
   newProjectEditOption.setAttribute('value', `${newProject.name}`);
