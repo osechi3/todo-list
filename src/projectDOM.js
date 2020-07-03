@@ -7,7 +7,7 @@ const projectList = document.querySelector('#projects');
 
 const createAProjectDOM = () => {
 
-  //Project creation button
+  // Show project creation button
 
   let isClicked = false;
   projectCreationBtn.addEventListener('click', () => {
@@ -87,7 +87,7 @@ const appendProject = (newProject) => {
   });
   
 
-  // Adding a new project to the input container and to the edit container 
+  // Adding a new project to the input container
   // where a user can choose a project to put a new to-do into
 
   const inputProjectSelector = document.querySelector('#input-project');
@@ -95,13 +95,6 @@ const appendProject = (newProject) => {
   newProjectInputOption.setAttribute('value', `${newProject.name}`);
   newProjectInputOption.textContent = newProject.name;
   inputProjectSelector.appendChild(newProjectInputOption);
-
-
-  const editProjectSelector = document.querySelector('#edit-project');
-  const newProjectEditOption = document.createElement('option');
-  newProjectEditOption.setAttribute('value', `${newProject.name}`);
-  newProjectEditOption.textContent = newProject.name;
-  editProjectSelector.appendChild(newProjectEditOption);
 
 }
 
