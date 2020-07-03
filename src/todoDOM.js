@@ -82,55 +82,8 @@ const appendATodo = (newTodo) => {
   editBtn.innerHTML = `<a href="#"><i class="fa fa-pencil-square fa-2x" aria-hidden="true"></i></a>`;
   todoOptions.appendChild(editBtn);
 
-  // Edit button functionality
-  editBtn.addEventListener('click', () => {
-
-    const editContainer = document.querySelector('#edit-container');
-    const editSubmitBtn = document.querySelector('#edit-submit-btn');
-
-    let editTitle = document.querySelector('#edit-title');
-    let editDescription = document.querySelector('#edit-description');
-    let editDate = document.querySelector('#edit-date');
-    let editProjectName = document.querySelector('#edit-project');
-    let editPriority = document.querySelector('#edit-priority');
-    
-    editTitle.value = newTodo.title;
-    editDescription.value = newTodo.description;
-    editDate.value = newTodo.dueDate;
-    editProjectName.value = newTodo.project;
-    editPriority.value = newTodo.priority;
-
-    helperFunctions().toShow(editContainer);
-
-    // Changing the values in the to-do according to the changes in the edit box
-    editSubmitBtn.addEventListener('click', () => {
-
-      newTodo.title = editTitle.value;
-      todoTitle.textContent = newTodo.title;
-
-      newTodo.description = editDescription.value;
-      todoDescription.textContent = newTodo.description;
-
-      newTodo.dueDate = editDate.value;
-      todoDueTime.textContent = newTodo.dueDate;
-
-      newTodo.priority = editPriority.value;
-      todoPriority.textContent = newTodo.priority;
-
-      newTodo.project = editProjectName.value;
-      todoProjectName = newTodo.project;
-
-      console.log(newTodo);
-      helperFunctions().toHide(editContainer);
-    });
-
-    // Hide the container when clicked outside of it
-    window.addEventListener('click', () => {
-      helperFunctions().hideBox(editContainer, editBtn);
-    });
-
-  });
-
+  // Edit button functionality is on the bottom of the file
+  
   // Delete button
   const delBtn = document.createElement('div');
   delBtn.classList.add('del-btn');
@@ -162,6 +115,148 @@ const appendATodo = (newTodo) => {
   todoProjectName.classList.add('todo-project-name', 'todo-input-elements');
   todoProjectName.textContent = newTodo.project;
   line2.appendChild(todoProjectName);
+
+  
+  // Edit button functionality
+  editBtn.addEventListener('click', () => {
+
+    // Showing edit container
+
+    const editContainer = document.createElement('div');
+    editContainer.setAttribute('id', 'edit-container');
+    todoSpace.appendChild(editContainer);
+
+
+    // The first row of the elements in the container
+    const editLine1 = document.createElement('div');
+    editLine1.setAttribute('id', 'edit-line1');
+    editContainer.appendChild(editLine1);
+
+    // Title
+    const editTitleLabel = document.createElement('label');
+    editTitleLabel.setAttribute('for', 'edit-title');
+    editLine1.appendChild(editTitleLabel);
+
+    const editTitle = document.createElement('input');
+    editTitle.setAttribute('id', 'edit-title');
+    editTitle.setAttribute('type', 'text');
+    editTitle.setAttribute('name', 'edit-title');
+    editLine1.appendChild(editTitle);
+
+    // Description
+    const editDescriptionLabel = document.createElement('label');
+    editDescriptionLabel.setAttribute('for', 'edit-description');
+    editLine1.appendChild(editTitleLabel);
+
+    const editDescription = document.createElement('input');
+    editDescription.setAttribute('id', 'edit-description');
+    editDescription.setAttribute('type', 'text');
+    editDescription.setAttribute('name', 'edit-description');
+    editLine1.appendChild(editDescription);
+
+    // Due date
+    const editDateLabel = document.createElement('label');
+    editDateLabel.setAttribute('for', 'edit-date');
+    editLine1.appendChild(editDateLabel);
+
+    const editDate = document.createElement('input');
+    editDate.setAttribute('id', 'edit-date');
+    editDate.setAttribute('name', 'edit-date');
+    editDate.setAttribute('type', 'date');
+    editLine1.appendChild(editDate);
+
+    // Close button
+    const closeEditBtn = document.createElement('div');
+    closeEditBtn.setAttribute('id', 'close-edit-btn');
+    closeEditBtn.classList.add('close-btn');
+    closeEditBtn.innerHTML = `<a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>`;
+    editLine1.appendChild(closeEditBtn);
+
+    // Close button functionality (Hides the edit container)
+    closeEditBtn.addEventListener('click', () => {
+      helperFunctions().toHide(editContainer);
+    });
+
+
+    // The second row of the elements in the container
+    const editLine2 = document.createElement('div');
+    editLine2.setAttribute('id', 'edit-line2');
+    editContainer.appendChild(editLine2);
+
+    // Submit button
+    const editSubmitBtn = document.createElement('button');
+    editSubmitBtn.setAttribute('id', 'edit-submit-btn');
+    editSubmitBtn.setAttribute('type', 'button');
+    editSubmitBtn.classList.add('submit-btn');
+    editSubmitBtn.textContent = 'Confirm';
+    editLine2.appendChild(editSubmitBtn);
+
+    // Priority
+    const editPriorityLabel = document.createElement('label');
+    editPriorityLabel.setAttribute('for', 'edit-priority');
+    editLine2.appendChild(editPriorityLabel);
+
+    const editPriority = document.createElement('select');
+    editPriority.setAttribute('id', 'edit-priority');
+    editPriority.classList.add('edit-options');
+    editPriority.setAttribute('name', 'edit-priority');
+    editLine2.appendChild(editPriority);
+
+    // Priority options
+    const defaultPriority = document.createElement('option');
+    defaultPriority.setAttribute('value', '');
+    defaultPriority.textContent = 'Priority';
+    editPriority.appendChild(defaultPriority);
+
+    const Priority1 = document.createElement('option');
+    Priority1.setAttribute('value', 'priority1');
+    Priority1.textContent = 'Priority 1';
+    editPriority.appendChild(Priority1);
+
+    const Priority2 = document.createElement('option');
+    Priority2.setAttribute('value', 'priority2');
+    Priority2.textContent = 'Priority 2';
+    editPriority.appendChild(Priority2);
+
+    const Priority3 = document.createElement('option');
+    Priority3.setAttribute('value', 'priority3');
+    Priority3.textContent = 'Priority 3';
+    editPriority.appendChild(Priority3);
+
+    const Priority4 = document.createElement('option');
+    Priority4.setAttribute('value', 'priority4');
+    Priority4.textContent = 'Priority 4';
+    editPriority.appendChild(Priority4);
+
+
+    // Showing values of a to-do in the object in the edit box
+    editTitle.value = newTodo.title;
+    editDescription.value = newTodo.description;
+    editDate.value = newTodo.dueDate;
+    editPriority.value = newTodo.priority;
+
+
+    // Applying the changes in the edit box to the to-do item on the page 
+    // and to the one in the array
+
+    editSubmitBtn.addEventListener('click', () => {
+
+      todoTitle.textContent = editTitle.value;
+      newTodo.title = editTitle.value;
+
+      todoDescription.textContent = editDescription.value;
+      newTodo.description = editDescription.value;
+
+      todoDueTime.textContent = editDate.value;
+      newTodo.dueDate = editDate.value;
+
+      todoPriority.textContent = editPriority.value;
+      newTodo.priority = editPriority.value;
+
+      helperFunctions().toHide(editContainer)
+    });
+
+  });
 }
 
 export {appendATodo};
