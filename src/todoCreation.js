@@ -1,6 +1,7 @@
 import {todos} from './index';
 import {appendATodo} from './todoDOM';
 import {addToProject} from './projectCreation';
+// import {moment} from 'moment';
 
 const todoItem = (title, description, dueDate, priority, project, isComplete) => {
   isComplete = false;

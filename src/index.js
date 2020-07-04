@@ -1,5 +1,6 @@
 import {createATodo} from './todoCreation';
 import {createAProjectDOM} from './projectDOM';
+import moment from 'moment';
 
 // Storage for to-dos and projects
 let todos = [];
@@ -62,7 +63,21 @@ const helperFunctions = () => {
     });
   };
 
-  return {toHide, toShow, resetInput, resetInputAll}
+  const formatDate = (newTodo) => {
+
+    // formats date from YYYY-MM-DD to DD-MMM or DD-MMM-YYY
+    // If input year is a current year omit it (DD-MMM)
+    const currentYear = moment().year();
+    let newToDoYear = moment(newTodo).year();
+    if (currentYear == newToDoYear) {
+      return moment(newTodo).format('DD MMM');
+    } else {
+      return moment(newTodo).format('DD MMM YYYY');
+    }
+  
+  }
+
+  return {toHide, toShow, resetInput, resetInputAll, formatDate}
 }
 createAProjectDOM();
 

@@ -104,7 +104,9 @@ const appendATodo = (newTodo) => {
 
   let todoDueTime = document.createElement('div');
   todoDueTime.classList.add('due-time', 'todo-input-elements');
-  todoDueTime.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> ${newTodo.dueDate}`;
+
+  let todoDueTimeFormat = helperFunctions().formatDate(newTodo.dueDate);
+  todoDueTime.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> ${todoDueTimeFormat}`;
   line2.appendChild(todoDueTime);
 
   let todoPriority = document.createElement('div');
@@ -246,7 +248,8 @@ const appendATodo = (newTodo) => {
       todoDescription.textContent = editDescription.value;
       newTodo.description = editDescription.value;
 
-      todoDueTime.textContent = editDate.value;
+      let todoDueTimeFormat = helperFunctions().formatDate(editDate.value);
+      todoDueTime.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> ${todoDueTimeFormat}`;
       newTodo.dueDate = editDate.value;
 
       todoPriority.innerHTML = `<i class="fa fa-circle" aria-hidden="true"></i> ${editPriority.value}`;
