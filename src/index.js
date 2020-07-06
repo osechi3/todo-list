@@ -1,11 +1,9 @@
 import {createATodo} from './todoCreation';
-import {createAProjectDOM} from './projectDOM';
+import { createAProjectDOM, showInputProjects } from './projectDOM';
+import { projects } from './localStorageInteractions';
 import moment from 'moment';
+import { getFromStorage, createFromStorageTodo, createFromStorageProject } from './localStorageInteractions';
 
-// Storage for to-dos and projects
-let todos = [];
-let completedTodos = [];
-let projects = [{name: 'Default', todos: []}];
 
 const newTodoBtn = document.querySelector('#new-todo-btn');
 const inputContainer = document.querySelector('#input-container');
@@ -18,6 +16,7 @@ newTodoBtn.addEventListener('click', () => {
   inputContainer.style.cssText = '-webkit-box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3); -moz-box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3); box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3);';
 
 });
+
 
 // Submit user's input
 const inputElements = document.querySelectorAll('.input-elements');
@@ -35,11 +34,13 @@ submitBtn.addEventListener('click', () => {
   helperFunctions().resetInputAll(inputElements); // clear input boxes when you get user's input
 });
 
+
 // Hide the container
 const closeInputBtn = document.querySelector('#close-input-btn');
 closeInputBtn.addEventListener('click', () => {
   helperFunctions().toHide(inputContainer);
 });
+
 
 const helperFunctions = () => {
     
@@ -79,6 +80,14 @@ const helperFunctions = () => {
 
   return {toHide, toShow, resetInput, resetInputAll, formatDate}
 }
-createAProjectDOM();
 
-export {todos, completedTodos, projects, helperFunctions};
+
+// Create a webpage and get everything from localStorage
+createAProjectDOM();
+getFromStorage();
+showInputProjects(projects);
+createFromStorageTodo();
+createFromStorageProject();
+
+
+export { helperFunctions};

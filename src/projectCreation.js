@@ -1,23 +1,26 @@
 import {appendProject} from './projectDOM';
-import {projects} from './index';
+import { addToStorage, projects } from './localStorageInteractions';
 
-const todoProject = (name, todos) => {
-  todos = [];
+const todoProject = (name, todos = []) => {
+
   return {name, todos}
 }
 
 const createAProject = (name, todos) => {
   let newProject = todoProject(name, todos);
-  projects.push(newProject);
+
+  // Putting a new project at the start of the array so that
+  // an array method that gets projects from localStorage don't fire on them
+  projects.unshift(newProject);
+  addToStorage();
   console.log(projects);
   appendProject(newProject);
 }
 
 const addToProject = (newTodo) => {
-  const inputProject = document.querySelector('#input-project').value;
-  console.log(inputProject)
+
   projects.map((project) => {
-    if (project.name == inputProject) {
+    if (project.name == newTodo.project) {
       project.todos.push(newTodo);
       console.log(projects);
     }

@@ -1,4 +1,5 @@
-import {helperFunctions} from './index';
+import { helperFunctions } from './index';
+import { projects } from './localStorageInteractions';
 import {createAProject} from './projectCreation';
 
 const projectCreationContainer = document.querySelector('#project-creation-container');
@@ -98,4 +99,25 @@ const appendProject = (newProject) => {
 
 }
 
-export {appendProject, createAProjectDOM};
+
+// Add a new project option in the edit box
+const showInputProjects = (projects) => {
+  projects.map((project) => {
+    const inputProjectSelector = document.querySelector('#input-project');
+    const newProjectInputOption = document.createElement('option');
+    newProjectInputOption.setAttribute('value', `${project.name}`);
+    newProjectInputOption.classList.add('input-project-options');
+    newProjectInputOption.textContent = project.name;
+    inputProjectSelector.appendChild(newProjectInputOption);
+  });
+}
+
+const deleteFromAProject = (newTodo) => {
+  projects.map((project) => {
+    if (newTodo.project == project.name) {
+      project.todos.splice(project.todos.indexOf(newTodo), 1);
+    }
+  });
+}
+
+export {appendProject, createAProjectDOM, showInputProjects, deleteFromAProject};

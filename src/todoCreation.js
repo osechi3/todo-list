@@ -1,7 +1,6 @@
-import {todos} from './index';
 import {appendATodo} from './todoDOM';
 import {addToProject} from './projectCreation';
-// import {moment} from 'moment';
+import { addToStorage, todos } from './localStorageInteractions';
 
 const todoItem = (title, description, dueDate, priority, project, isComplete) => {
   isComplete = false;
@@ -10,10 +9,14 @@ const todoItem = (title, description, dueDate, priority, project, isComplete) =>
 
 const createATodo = (title, description, dueDate, priority, project) => {
   let newTodo = todoItem(title, description, dueDate, priority, project);
-  todos.push(newTodo);
+
+// instead of push to fix the order of the todo elements 
+// when getting them from localStorage
+  todos.unshift(newTodo);
   console.log(todos);
   appendATodo(newTodo);
   addToProject(newTodo);
+  addToStorage();
 }
 
 export {createATodo};

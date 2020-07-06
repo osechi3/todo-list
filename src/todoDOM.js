@@ -1,6 +1,7 @@
 import {deleteATodo, completeATodo} from './todoInteractions';
-import {todos, helperFunctions} from './index';
+import { helperFunctions } from './index';
 import {addPriorityColor} from './priorityInteractions';
+import { addToStorage } from './localStorageInteractions';
 
 const todoSpace = document.querySelector('#todo-space');
 const newTodoBtn = document.querySelector('#new-todo-btn');
@@ -11,7 +12,6 @@ const appendATodo = (newTodo) => {
 
   const todoContainer = document.createElement('div');
   todoContainer.classList.add('todo-elements');
-  todoContainer.setAttribute('data', `order-${todos.indexOf(newTodo)}`);
   todoSpace.insertBefore(todoContainer, newTodoBtn);
 
   // first row in a to-do element
@@ -95,6 +95,7 @@ const appendATodo = (newTodo) => {
   delBtn.addEventListener('click', () => {
     todoSpace.removeChild(todoContainer);
     deleteATodo(newTodo);
+    addToStorage();
   });
 
   // second row in a to-do element
@@ -256,7 +257,7 @@ const appendATodo = (newTodo) => {
       newTodo.priority = editPriority.value;
       todoPriority.style.color = addPriorityColor(newTodo);
       console.log(newTodo);
-
+      addToStorage();
 
     });
 
