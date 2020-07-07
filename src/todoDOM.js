@@ -1,6 +1,6 @@
-import {deleteATodo, completeATodo} from './todoInteractions';
+import { deleteATodo, completeATodo } from './todoInteractions';
 import { helperFunctions } from './index';
-import {addPriorityColor} from './priorityInteractions';
+import { addPriorityColor } from './priorityInteractions';
 import { addToStorage } from './localStorageInteractions';
 
 const todoSpace = document.querySelector('#todo-space');

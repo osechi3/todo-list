@@ -1,4 +1,4 @@
-import {createATodo} from './todoInteractions';
+import { createATodo } from './todoInteractions';
 import { createAProjectDOM, showInputProjects } from './projectDOM';
 import { projects } from './localStorageInteractions';
 import moment from 'moment';
@@ -44,9 +44,9 @@ closeInputBtn.addEventListener('click', () => {
 
 const helperFunctions = () => {
     
-  const toHide = (element) => { element.classList.add('hide');}
+  const toHide = (element) => element.classList.add('hide');
 
-  const toShow = (element) => {element.classList.remove('hide');}
+  const toShow = (element) => element.classList.remove('hide');
 
   const resetInput = (element) => {
     element.value = '';

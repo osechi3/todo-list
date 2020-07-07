@@ -1,7 +1,7 @@
-import {appendATodo} from './todoDOM';
-import {addToProject} from './projectInteractions';
+import { appendATodo } from './todoDOM';
+import { addToProject } from './projectInteractions';
 import { addToStorage, todos, completedTodos, projects } from './localStorageInteractions';
-import {deleteFromAProject} from './projectDOM';
+import { deleteFromAProject } from './projectDOM';
 
 
 const todoItem = (title, description, dueDate, priority, project, isComplete) => {

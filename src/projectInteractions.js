@@ -1,4 +1,4 @@
-import {appendProject} from './projectDOM';
+import { appendProject } from './projectDOM';
 import { addToStorage, projects, todos } from './localStorageInteractions';
 
 const todoProject = (name, todos = []) => {

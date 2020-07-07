@@ -1,6 +1,6 @@
 import { helperFunctions } from './index';
 import { addToStorage, projects, todos } from './localStorageInteractions';
-import {createAProject, deleteProject} from './projectInteractions';
+import { createAProject, deleteProject } from './projectInteractions';
 
 const projectCreationContainer = document.querySelector('#project-creation-container');
 const projectCreationBtn = document.querySelector('#project-creation-btn');
