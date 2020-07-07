@@ -1,4 +1,4 @@
-import {createATodo} from './todoCreation';
+import {createATodo} from './todoInteractions';
 import { createAProjectDOM, showInputProjects } from './projectDOM';
 import { projects } from './localStorageInteractions';
 import moment from 'moment';
