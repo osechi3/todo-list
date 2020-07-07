@@ -146,6 +146,7 @@ const appendATodo = (newTodo) => {
     editTitle.setAttribute('id', 'edit-title');
     editTitle.setAttribute('type', 'text');
     editTitle.setAttribute('name', 'edit-title');
+    editTitle.setAttribute('maxlength', '45');
     editLine1.appendChild(editTitle);
 
     // Description
@@ -157,6 +158,7 @@ const appendATodo = (newTodo) => {
     editDescription.setAttribute('id', 'edit-description');
     editDescription.setAttribute('type', 'text');
     editDescription.setAttribute('name', 'edit-description');
+    editDescription.setAttribute('maxlength', '150');
     editLine1.appendChild(editDescription);
 
     // Due date
