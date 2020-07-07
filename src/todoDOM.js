@@ -129,6 +129,8 @@ const appendATodo = (newTodo) => {
 
     const editContainer = document.createElement('div');
     editContainer.setAttribute('id', 'edit-container');
+    // darken the background
+    editContainer.style.cssText = '-webkit-box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3); -moz-box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3); box-shadow: 0px 0px 0px 2000px rgba(0,0,0,0.3);';
     todoSpace.appendChild(editContainer);
 
 
