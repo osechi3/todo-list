@@ -1,5 +1,5 @@
 import {appendProject} from './projectDOM';
-import { addToStorage, projects } from './localStorageInteractions';
+import { addToStorage, projects, todos } from './localStorageInteractions';
 
 const todoProject = (name, todos = []) => {
 
@@ -27,5 +27,16 @@ const addToProject = (newTodo) => {
   });
 }
 
+// Delete from projects array
+const deleteProject = (newProject) => {
 
-export {createAProject, addToProject};
+  projects.map((project) => {
+    // Default project is always there
+    if (project.name !== 'Default' && project.name == newProject.name) {
+
+      projects.splice(projects.indexOf(project), 1);
+    }
+  });
+}
+
+export {createAProject, addToProject, deleteProject};

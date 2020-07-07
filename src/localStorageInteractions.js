@@ -93,7 +93,7 @@ const createFromStorageProject = () => {
       projects.splice(projects.indexOf(project), 1);
   
       const inputProject = document.querySelector('#input-project');
-      const inputProjectOptions = document.querySelectorAll('.input-project-options')
+      const inputProjectOptions = document.querySelectorAll('.input-project-options');
   
         inputProjectOptions.forEach((option) => {
             if (option.value == project.name) inputProject.removeChild(option);
