@@ -184,6 +184,21 @@ ul {
 
   text-align: center;
 }
+#project-creation-container {
+  outline: 1px solid;
+}
+.new-project-dom-item {
+  padding-left: 30px;
+
+  outline: 1px solid;
+}
+.new-project-delete-btn {
+  margin: 0 10px;
+  font-size: 15px;
+  vertical-align: top;
+
+  outline: 1px solid;
+}
 
 /* Input box */
 #input-container {
@@ -364,6 +379,3 @@ ul {
 }
 
 /* Project creation box */
-#project-creation-container {
-  outline: 1px solid;
-}
