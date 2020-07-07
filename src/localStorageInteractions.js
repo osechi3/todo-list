@@ -1,5 +1,5 @@
 import { createATodo } from './todoInteractions';
-import { createAProject } from './projectCreation';
+import { createAProject } from './projectInteractions';
 
 
 // Storage for to-dos and projects

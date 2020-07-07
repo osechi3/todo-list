@@ -1,5 +1,5 @@
 import {appendATodo} from './todoDOM';
-import {addToProject} from './projectCreation';
+import {addToProject} from './projectInteractions';
 import { addToStorage, todos, completedTodos, projects } from './localStorageInteractions';
 import {deleteFromAProject} from './projectDOM';
 
