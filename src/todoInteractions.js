@@ -4,9 +4,9 @@ import { addToStorage, todos, completedTodos, projects } from './localStorageInt
 import { deleteFromAProject } from './projectDOM';
 
 
-const todoItem = (title, description, dueDate, priority, project, isComplete) => {
-  isComplete = false;
-  return {title, description, dueDate, priority, project, isComplete}
+const todoItem = (title, description, dueDate, priority, project) => {
+
+  return {title, description, dueDate, priority, project}
 }
 
 const createATodo = (title, description, dueDate, priority, project) => {
