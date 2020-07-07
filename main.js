@@ -1614,7 +1614,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addPriorityColor\", function() { return addPriorityColor; });\n\nconst addPriorityColor = (newTodo) => {\n  switch (newTodo.priority) {\n    case 'Low': return '#729B79';\n    case 'Medium': return '#FDE74C';\n    case 'High': return '#931621';\n  }\n}\n\n\n\n//# sourceURL=webpack:///./src/priorityInteractions.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"addPriorityColor\", function() { return addPriorityColor; });\n\nconst addPriorityColor = (newTodo) => {\n  switch (newTodo.priority) {\n    case 'Low': return '#729B79';\n    case 'Medium': return '#FDE74C';\n    case 'High': return '#931621';\n    case '': return '#c2e1ff';\n  }\n}\n\n\n\n//# sourceURL=webpack:///./src/priorityInteractions.js?");
 
 /***/ }),
 
