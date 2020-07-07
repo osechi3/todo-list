@@ -32,7 +32,7 @@ const appendATodo = (newTodo) => {
       const todoInputElements = document.querySelectorAll('.todo-input-elements');
       completeBtn.firstChild.style.color = '#D00000';
       todoContainer.style.backgroundColor = 'white';
-      todoInputElements.forEach((element) => element.style.cssText = 'text-decoration: line-through;');
+      todoInputElements.forEach((element) => element.style.textDecoration = 'line-through');
       isClicked = true;
     } else {
       // If clicked second time - delete the to-do element
@@ -73,7 +73,7 @@ const appendATodo = (newTodo) => {
     completeBtn.firstChild.style.color = '';
     todoContainer.style.backgroundColor = '';
     const todoInputElements = document.querySelectorAll('.todo-input-elements');
-    todoInputElements.forEach((element) => element.style.cssText = '');
+    todoInputElements.forEach((element) => element.style.textDecoration = '');
     helperFunctions().toHide(undoBtn);
   });
 
