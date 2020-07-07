@@ -7,6 +7,10 @@ html, body, main {
 }
 a {
   text-decoration: none;
+  color: #446df6;
+}
+a:hover {
+  opacity: 70%;
 }
 ul {
   list-style: none;
@@ -32,7 +36,7 @@ ul {
   display: flex;
   align-items: stretch;
 
-  outline: 1px solid red;
+  background-color: #cae5ff;
 }
 #todo-space {
   flex-basis: 85%;
@@ -42,7 +46,7 @@ ul {
   align-items: flex-start;
 
   background-color: #CAE5FF;
-  outline: 1px solid;
+  overflow-x: hidden;
 }
 
 .todo-elements {
@@ -53,7 +57,8 @@ ul {
   justify-content: flex-start;
   flex-wrap: wrap;
 
-  outline: 1px solid;
+  border: 1px solid #add8ff;
+  background-color: #C2E1FF;
 }
 
 /* a to-do element */
@@ -67,8 +72,6 @@ ul {
 
   line-height: 55px;
   text-align: center;
-
-  outline: 1px solid;
 }
 .todo-title {
   width: 45%;
@@ -77,8 +80,6 @@ ul {
 
   font-size: 18px;
   line-height: 45px;
-
-  outline: 1px solid;
 }
 .todo-description {
   width: 40%;
@@ -87,8 +88,6 @@ ul {
   padding-top: 5px;
 
   font-size: 13px;
-
-  outline: 1px solid;
 }
 #line2 {
   display: flex;
@@ -98,18 +97,12 @@ ul {
   padding-left: 65px;
 
   font-size: 14px;
-
-  outline: 1px solid;
 }
 .todo-priority {
   padding-left: 20px;
-
-  outline: 1px solid;
 }
 .todo-project-name {
   padding-left: 20px;
-
-  outline: 1px solid;
 }
 
 /* Options of a to-do element */
@@ -120,20 +113,16 @@ ul {
   display: flex;
   justify-content: flex-end;
 
-  outline: 1px solid;
+  border-left: 2px solid #add8ff;
 }
 #undo-btn {
   padding: 5px;
 }
 #edit-btn {
   padding: 5px;
-
-  outline: 1px solid;
 }
 .del-btn {
   padding: 5px 15px 5px 5px;
-
-  outline: 1px solid;
 }
 
 #new-todo-btn {
@@ -150,6 +139,10 @@ ul {
   border: 5px solid #70BAFF;
   border-radius: 100%;
 }
+#new-todo-btn:hover {
+  background-color: white;
+  color: #70baff;
+}
 
 /* Projects tab */
 #projects-tab {
@@ -162,17 +155,15 @@ ul {
   font-size: 22px;
 
   background-color: #ADD8FF;
-  outline: 1px solid;
 }
 #default-project {
   margin-top: 35px;
 
   text-align: center;
-  outline: 1px solid;
+  
 }
 #projects-title {
   margin: 0;
-  margin-top: 10px;
   padding: 0;
 
   text-align: center;
