@@ -31,7 +31,7 @@ const appendATodo = (newTodo) => {
     if (!isClicked) {
       const todoInputElements = document.querySelectorAll('.todo-input-elements');
       completeBtn.firstChild.style.color = '#D00000';
-      todoContainer.style.backgroundColor = '#44AF69';
+      todoContainer.style.backgroundColor = 'white';
       todoInputElements.forEach((element) => element.style.cssText = 'text-decoration: line-through;');
       isClicked = true;
     } else {
