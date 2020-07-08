@@ -38,7 +38,6 @@ const appendProject = (newProject) => {
   // Adding a new project to the project section
 
   const newProjectItem = document.createElement('li');
-  newProjectItem.setAttribute('id', newProject.name.toLowerCase());
   newProjectItem.classList.add('new-project-dom-item');
   projectList.insertBefore(newProjectItem, projectCreationBtn);
 
