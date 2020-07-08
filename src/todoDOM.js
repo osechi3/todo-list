@@ -29,10 +29,9 @@ const appendATodo = (newTodo) => {
   // Complete button functionality
   completeBtn.addEventListener('click', () => {
     if (!isClicked) {
-      const todoInputElements = document.querySelectorAll('.todo-input-elements');
       completeBtn.firstChild.style.color = '#D00000';
       todoContainer.style.backgroundColor = 'white';
-      todoInputElements.forEach((element) => element.style.textDecoration = 'line-through');
+      todoContainer.style.textDecoration = 'line-through';
       isClicked = true;
     } else {
       // If clicked second time - delete the to-do element
@@ -72,8 +71,7 @@ const appendATodo = (newTodo) => {
     isClicked = false;
     completeBtn.firstChild.style.color = '';
     todoContainer.style.backgroundColor = '';
-    const todoInputElements = document.querySelectorAll('.todo-input-elements');
-    todoInputElements.forEach((element) => element.style.textDecoration = '');
+    todoContainer.style.textDecoration = '';
     helperFunctions().toHide(undoBtn);
   });
 
