@@ -105,7 +105,12 @@ const appendATodo = (newTodo) => {
   todoDueTime.classList.add('due-time', 'todo-input-elements');
 
   let todoDueTimeFormat = helperFunctions().formatDate(newTodo.dueDate);
-  todoDueTime.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> ${todoDueTimeFormat}`;
+  if (todoDueTimeFormat == '') {
+    todoDueTime.innerHTML = todoDueTimeFormat;
+  } else {
+    todoDueTime.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> ${todoDueTimeFormat}`;
+  }
+
   line2.appendChild(todoDueTime);
 
   let todoPriority = document.createElement('div');
@@ -254,7 +259,11 @@ const appendATodo = (newTodo) => {
       newTodo.description = editDescription.value;
 
       let todoDueTimeFormat = helperFunctions().formatDate(editDate.value);
-      todoDueTime.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> ${todoDueTimeFormat}`;
+      if (todoDueTimeFormat == '') {
+        todoDueTime.innerHTML = todoDueTimeFormat;
+      } else {
+        todoDueTime.innerHTML = `<i class="fa fa-calendar" aria-hidden="true"></i> ${todoDueTimeFormat}`;
+      }
       newTodo.dueDate = editDate.value;
 
       todoPriority.innerHTML = `<i class="fa fa-circle" aria-hidden="true"></i> ${editPriority.value}`;

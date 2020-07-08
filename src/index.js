@@ -70,7 +70,9 @@ const helperFunctions = () => {
     // If input year is a current year omit it (DD-MMM)
     const currentYear = moment().year();
     let newToDoYear = moment(newTodo).year();
-    if (currentYear == newToDoYear) {
+    if (newTodo == '') {
+      return newTodo;
+    } else if (currentYear == newToDoYear) {
       return moment(newTodo).format('DD MMM');
     } else {
       return moment(newTodo).format('DD MMM YYYY');
