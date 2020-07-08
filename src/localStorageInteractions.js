@@ -1,5 +1,5 @@
-import { createATodo } from './todoInteractions';
-import { createAProject } from './projectInteractions';
+import { createTodo } from './todoInteractions';
+import { createProject } from './projectInteractions';
 
 
 // Storage for to-dos and projects
@@ -72,11 +72,11 @@ const createFromStorageTodo = () => {
     console.log(projects);
     
     console.log(todos);
-    createATodo(todo.title, todo.description, todo.dueDate, todo.priority, todo.project);
+    createTodo(todo.title, todo.description, todo.dueDate, todo.priority, todo.project);
   
     console.log(todos);
   
-   // Deleting the todo in todos array used in the createATodo function when loading the page
+   // Deleting the todo in todos array used in the createTodo function when loading the page
     todos.splice(todos.indexOf(todo), 1);
     addToStorage();
     console.log(todos);
@@ -89,7 +89,7 @@ const createFromStorageProject = () => {
 
   projects.map((project) => {
     if (project.name !== 'Default') { // Default project is always there
-      createAProject(project.name, project.todos);
+      createProject(project.name, project.todos);
       projects.splice(projects.indexOf(project), 1);
   
       const inputProject = document.querySelector('#input-project');

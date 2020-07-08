@@ -1,12 +1,12 @@
 import { helperFunctions } from './index';
 import { addToStorage, projects, todos } from './localStorageInteractions';
-import { createAProject, deleteProject } from './projectInteractions';
+import { createProject, deleteProject } from './projectInteractions';
 
 const projectCreationContainer = document.querySelector('#project-creation-container');
 const projectCreationBtn = document.querySelector('#project-creation-btn');
 const projectList = document.querySelector('#projects');
 
-const createAProjectDOM = () => {
+const createProjectDOM = () => {
 
   // Show project creation button
 
@@ -26,7 +26,7 @@ const createAProjectDOM = () => {
   const newProjectSubmitBtn = document.querySelector('#new-project-submit-btn');
   const newProjectInputName = document.querySelector('#new-project-name');
   newProjectSubmitBtn.addEventListener('click', () => {
-    createAProject(newProjectInputName.value);
+    createProject(newProjectInputName.value);
     helperFunctions().resetInput(newProjectInputName);
     helperFunctions().toHide(projectCreationContainer);
     isClicked = false;
@@ -176,7 +176,7 @@ const deleteFromInputProjects = (newProject) => {
   });
 }
 
-const deleteFromAProject = (newTodo) => {
+const deleteFromProject = (newTodo) => {
   projects.map((project) => {
     if (newTodo.project == project.name) {
       project.todos.splice(project.todos.indexOf(newTodo), 1);
@@ -184,4 +184,4 @@ const deleteFromAProject = (newTodo) => {
   });
 }
 
-export {appendProject, createAProjectDOM, showInputProjects, deleteFromAProject};
+export {appendProject, createProjectDOM, showInputProjects, deleteFromProject};

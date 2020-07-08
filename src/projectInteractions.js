@@ -6,7 +6,7 @@ const todoProject = (name, todos = []) => {
   return {name, todos}
 }
 
-const createAProject = (name, todos) => {
+const createProject = (name, todos) => {
   let newProject = todoProject(name, todos);
 
   // Putting a new project at the start of the array so that
@@ -39,4 +39,4 @@ const deleteProject = (newProject) => {
   });
 }
 
-export {createAProject, addToProject, deleteProject};
+export {createProject, addToProject, deleteProject};

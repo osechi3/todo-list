@@ -1,5 +1,5 @@
-import { createATodo } from './todoInteractions';
-import { createAProjectDOM, showInputProjects } from './projectDOM';
+import { createTodo } from './todoInteractions';
+import { createProjectDOM, showInputProjects } from './projectDOM';
 import { projects } from './localStorageInteractions';
 import moment from 'moment';
 import { getFromStorage, createFromStorageTodo, createFromStorageProject } from './localStorageInteractions';
@@ -29,7 +29,7 @@ submitBtn.addEventListener('click', () => {
   const inputProject = document.querySelector('#input-project').value;
   const inputPriority = document.querySelector('#input-priority').value;
 
-  createATodo(inputTitle, inputDescription, inputDate, inputPriority, inputProject);
+  createTodo(inputTitle, inputDescription, inputDate, inputPriority, inputProject);
   helperFunctions().toHide(inputContainer);
   helperFunctions().resetInputAll(inputElements); // clear input boxes when you get user's input
 });
@@ -85,7 +85,7 @@ const helperFunctions = () => {
 
 
 // Create a webpage and get everything from localStorage
-createAProjectDOM();
+createProjectDOM();
 getFromStorage();
 showInputProjects(projects);
 createFromStorageTodo();

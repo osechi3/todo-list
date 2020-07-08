@@ -1,7 +1,7 @@
 import { appendATodo } from './todoDOM';
 import { addToProject } from './projectInteractions';
 import { addToStorage, todos, completedTodos, projects } from './localStorageInteractions';
-import { deleteFromAProject } from './projectDOM';
+import { deleteFromProject } from './projectDOM';
 
 
 const todoItem = (title, description, dueDate, priority, project) => {
@@ -9,7 +9,7 @@ const todoItem = (title, description, dueDate, priority, project) => {
   return {title, description, dueDate, priority, project}
 }
 
-const createATodo = (title, description, dueDate, priority, project) => {
+const createTodo = (title, description, dueDate, priority, project) => {
   let newTodo = todoItem(title, description, dueDate, priority, project);
 
 // instead of push to fix the order of the todo elements 
@@ -24,19 +24,19 @@ const createATodo = (title, description, dueDate, priority, project) => {
 const completeATodo = (newTodo) => {
   completedTodos.push(newTodo);
   addToStorage();
-  deleteATodo(newTodo);
+  deleteTodo(newTodo);
   console.log(todos);
   console.log(completedTodos);
   console.log(projects);
 }
 
-const deleteATodo = (newTodo) => {
+const deleteTodo = (newTodo) => {
   console.log(todos.indexOf(newTodo));
   todos.splice(todos.indexOf(newTodo), 1);
   console.log(todos);
-  deleteFromAProject(newTodo);
+  deleteFromProject(newTodo);
   addToStorage();
   console.log(projects);
 }
 
-export {createATodo, completeATodo, deleteATodo};
+export {createTodo, completeATodo, deleteTodo};

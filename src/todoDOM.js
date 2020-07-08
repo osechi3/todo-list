@@ -1,4 +1,4 @@
-import { deleteATodo, completeATodo } from './todoInteractions';
+import { deleteTodo, completeATodo } from './todoInteractions';
 import { helperFunctions } from './index';
 import { addPriorityColor } from './priorityInteractions';
 import { addToStorage } from './localStorageInteractions';
@@ -92,7 +92,7 @@ const appendATodo = (newTodo) => {
   // Delete button functionality
   delBtn.addEventListener('click', () => {
     todoSpace.removeChild(todoContainer);
-    deleteATodo(newTodo);
+    deleteTodo(newTodo);
     addToStorage();
   });
 
@@ -121,7 +121,7 @@ const appendATodo = (newTodo) => {
 
   let todoProjectName = document.createElement('div');
   todoProjectName.classList.add('todo-project-name', 'todo-input-elements');
-  
+
   // Hiding project in the to-do if the default project has been chosen
   if (newTodo.project !== 'Default') {
     todoProjectName.textContent = newTodo.project;
