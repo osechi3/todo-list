@@ -121,7 +121,11 @@ const appendATodo = (newTodo) => {
 
   let todoProjectName = document.createElement('div');
   todoProjectName.classList.add('todo-project-name', 'todo-input-elements');
-  todoProjectName.textContent = newTodo.project;
+  
+  // Hiding project in the to-do if the default project has been chosen
+  if (newTodo.project !== 'Default') {
+    todoProjectName.textContent = newTodo.project;
+  }
   line2.appendChild(todoProjectName);
 
 
